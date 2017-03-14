@@ -13,3 +13,9 @@ func ProvideLogin(providerName string) http.HandlerFunc {
 
 	}
 }
+
+func ProvideCallBack(providerName string) http.HandlerFunc {
+	return func(rw http.ResponseWriter, req *http.Request) {
+
+	}
+}

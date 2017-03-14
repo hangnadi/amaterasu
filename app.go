@@ -29,3 +29,7 @@ func loginHandler(providerName string) http.HandlerFunc {
 func registerHandler() http.HandlerFunc {
 	return register.ProvideRegister()
 }
+
+func callBackHandler(providerName string) http.HandlerFunc {
+	return login.ProvideCallBack(providerName)
+}
