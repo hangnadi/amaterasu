@@ -15,13 +15,15 @@ const (
 	DB_USER           = "postgres"
 	DB_PASSWORD       = "postgres"
 	DB_NAME           = "ProjectIcowDB"
-	FORMAT_DATASOURCE = "user=%s password=%s dbname=%s sslmode=disable"
+	DB_HOST           = "localhost"
+	DB_PORT           = 5432
+	FORMAT_DATASOURCE = "host=%s port=%d user=%s password=%s dbname=%s sslmode=disable"
 )
 
 func init() {
 	driverName := "postgres"
 	dataSourceName := fmt.Sprintf(FORMAT_DATASOURCE,
-		DB_USER, DB_PASSWORD, DB_NAME)
+		DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME)
 
 	// Open db connection
 	db, err := sql.Open(driverName, dataSourceName)
