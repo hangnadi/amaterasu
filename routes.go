@@ -51,7 +51,7 @@ var routes = Routes{
 		CallbackGoogle,
 	},
 	Route{
-		"Login Google",
+		"Register",
 		"POST",
 		"/auth/email/register",
 		RegisterEmail,

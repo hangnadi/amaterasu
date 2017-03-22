@@ -42,27 +42,18 @@ func RegisterEmail(rw http.ResponseWriter, req *http.Request) {
 
 	data, err := register.HandleRegister(rw, req)
 
-	jsonData, err1 := json.Marshal(data)
-
 	rw.Header().Set(ContentType, ApplicationJson)
 	rw.WriteHeader(http.StatusOK)
 
-	if err1 != nil {
+	if err == nil {
 		responseJson = ResponseJSON{
-			Status:       "OK",
-			MessageError: "internal server error",
+			Status: "OK",
+			Data:   data,
 		}
 	} else {
-		if err == nil {
-			responseJson = ResponseJSON{
-				Status: "OK",
-				Data:   string(jsonData),
-			}
-		} else {
-			responseJson = ResponseJSON{
-				Status:       "OK",
-				MessageError: err.Error(),
-			}
+		responseJson = ResponseJSON{
+			Status:       "OK",
+			MessageError: err.Error(),
 		}
 	}
 
