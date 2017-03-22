@@ -55,13 +55,14 @@ func RegisterEmail(rw http.ResponseWriter, req *http.Request) {
 	} else {
 		if err == nil {
 			responseJson = ResponseJSON{
-			Status:       "OK",
-			Data:         string(jsonData),
+				Status: "OK",
+				Data:   string(jsonData),
+			}
 		} else {
 			responseJson = ResponseJSON{
-			Status:       "OK",
-			MessageError: err.Error(),
-		}
+				Status:       "OK",
+				MessageError: err.Error(),
+			}
 		}
 	}
 
